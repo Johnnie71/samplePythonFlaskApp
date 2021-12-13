@@ -21,7 +21,9 @@ def index():
 def add():
     # add new item to todo list
     title = request.form.get('title')
-    new_todo = Todo(title)
+    new_todo = Todo(title=title, complete=False)
+    db.session.add(new_todo)
+    db.session.commit()
 
 
 if __name__ == "__main__":
