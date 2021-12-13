@@ -31,6 +31,14 @@ def add():
 def update():
     # add new item to todo list
     todo = Todo.query.filter_by(id=todo_id).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/delete/<int:todo_id>')
+def delete():
+    # add new item to todo list
+    todo = Todo.query.filter_by(id=todo_id).first()
     todo.complete = not todo.complete
     db.session.commit()
     return redirect(url_for('index'))
