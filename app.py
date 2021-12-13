@@ -16,14 +16,9 @@ def index():
     # show all todo's
     todo_list = Todo.query.all()
     print(todo_list)
-    return render_template('base.html')
+    return render_template('base.html', todo_list=todo_list)
 
 
 if __name__ == "__main__":
     db.create_all()
-
-    new_todo = Todo(title='todo-1', complete=False)
-    db.session.add(new_todo)
-    db.session.commit()
-
     app.run(debug=True)
