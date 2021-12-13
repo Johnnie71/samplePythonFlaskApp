@@ -20,6 +20,11 @@
 
 		{% for todo in todo_list%}
 		<p>{{todo.id}} | {{todo.title}}</p>
-		{% endfor %}
+
+		{% if todo.complete === False%}
+		<span>Not Complete</span>
+		{% else %}
+		<span>Completed</span>
+		{% endif%} {% endfor %}
 	</body>
 </html>
