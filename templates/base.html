@@ -21,10 +21,13 @@
 		{% for todo in todo_list%}
 		<p>{{todo.id}} | {{todo.title}}</p>
 
-		{% if todo.complete === False%}
-		<span>Not Complete</span>
+		{% if todo.complete == False %}
+		<span>Not Completed</span>
 		{% else %}
 		<span>Completed</span>
-		{% endif%} {% endfor %}
+		{% endif%}
+		<a href="/">Update</a>
+		<a href="/">Delete</a>
+		{% endfor %}
 	</body>
 </html>
